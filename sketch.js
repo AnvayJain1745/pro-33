@@ -1,10 +1,11 @@
-var Engine = Matter.Engine,
-  World = Matter.World,
-  Events = Matter.Events,
-  Bodies = Matter.Bodies;
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Events = Matter.Events;
+const Bodies = Matter.Bodies;
  
 var particles = [];
 var plinkos = [];
+var divisions = [];
 
 var divisionHeight=300;
 var score =0;
@@ -16,37 +17,32 @@ function setup() {
 
 
    for (var k = 0; k <=width; k = k + 80) {
-     divisions=new Divisions(k, height-divisionHeight/2, 10, divisionHeight);
+     divisions.push=new Divisions(k, height-divisionHeight/2, 10, divisionHeight);
    }
 
+   for (var j = 75; j <=width; j=j+50) 
+   {
+   
+      plinkos.push(new Plinko(j,75));
+   }
+
+   for (var j = 50; j <=width-10; j=j+50) 
+   {
+   
+     plinkos.push(new Plinko(j,175));
+   }
 
     for (var j = 75; j <=width; j=j+50) 
-    {
-    
-       plinkos1=new Plinko(j,75);
-    }
+   {
+   
+     plinkos.push(new Plinko(j,275));
+   }
 
     for (var j = 50; j <=width-10; j=j+50) 
-    {
-    
-       plinkos2=new Plinko(j,175);
-    }
-
-     for (var j = 75; j <=width; j=j+50) 
-    {
-    
-       plinkos3=new Plinko(j,275);
-    }
-
-     for (var j = 50; j <=width-10; j=j+50) 
-    {
-    
-       plinkos4=new Plinko(j,375);
-    }
-
-    
-
-    
+   {
+   
+     plinkos.push(new Plinko(j,375));
+   }
 }
  
 
